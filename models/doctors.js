@@ -22,7 +22,18 @@ const DoctorSchema = new mongoose.Schema({
     speciality:{
         type:String,
         required: true
-    }
+    },
+    city:{
+        type:String,
+        required:true,
+    },
 });
 
-module.exports = new mongoose.model('Doctor', DoctorSchema);
+// module.exports = new mongoose.model('Doctor', DoctorSchema);
+// module.exports = new mongoose.model('Doctor1', DoctorSchema);
+
+const doctor = mongoose.model("Doctor",DoctorSchema);
+const doctor1 = mongoose.model("Doctor1",DoctorSchema);
+
+module.exports = doctor;
+module.exports = doctor1;
