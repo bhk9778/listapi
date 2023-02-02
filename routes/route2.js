@@ -29,7 +29,7 @@ router1.get("/123", async(req,res)=>{
     try{
         const city = req.query.city;
         const speciality = req.query.speciality
-        const data = await Doctor1.find({city:{$in: [city, "botad"]},speciality:{$in: speciality}}).sort({id:'desc'});
+        const data = await Doctor1.find({city:{$in: city},speciality:{$in: speciality}});
         res.send(data)
     }
     catch(err){
