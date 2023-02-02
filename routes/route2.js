@@ -25,10 +25,10 @@ router1.get("/",(req,res)=>{
 });
 
 
-router1.get("/123", async(req,res)=>{
+router1.get("/123/:city/:speciality", async(req,res)=>{
     try{
-        const city = req.query.city;
-        const speciality = req.query.speciality
+        const city = req.params.city;
+        const speciality = req.params.speciality
         const data = await Doctor1.find({city:{$in: city},speciality:{$in: speciality}});
         res.send(data)
     }
