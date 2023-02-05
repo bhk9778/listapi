@@ -27,6 +27,10 @@ const DoctorSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    district:{
+        type:String,
+        required:true,
+    },
 });
 
 // module.exports = new mongoose.model('Doctor', DoctorSchema);

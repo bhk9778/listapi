@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 require('dotenv').config();
 const doctorRoute1 = require('./routes/route2');
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 6000;
 //middlewares
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
