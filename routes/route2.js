@@ -10,7 +10,8 @@ router1.post('/',(req,res)=>{
         phone:req.body.doctorPhone,
         id:req.body.doctorId,
         speciality:req.body.doctorSpeciality,
-        city:req.body.doctorcity
+        city:req.body.doctorcity,
+        district:req.body.doctorDistrict
     });
 
 
