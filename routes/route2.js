@@ -42,12 +42,12 @@ router1.get("/123/:district/:city/:speciality", async(req,res)=>{
 })
 
 
-router1.get("/456/:district/:speciality/", async(req,res)=>{
+router1.get("/456/:address/:speciality/", async(req,res)=>{
     try{
-        const district = req.params.district;
+        const address = req.params.address;
         const speciality = req.params.speciality;
         
-        const data = await Doctor1.find({district:{$in: district},speciality:{$in: speciality}});
+        const data = await Doctor1.find({address:{$in: address},speciality:{$in: speciality}});
         res.send(data)
     }
     catch(err){
