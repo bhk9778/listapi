@@ -11,7 +11,8 @@ router1.post('/',(req,res)=>{
         id:req.body.doctorId,
         speciality:req.body.doctorSpeciality,
         city:req.body.doctorcity,
-        district:req.body.doctorDistrict
+        district:req.body.doctorDistrict,
+        pincode:req.body.doctorPincode
     });
 
 

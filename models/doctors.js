@@ -19,6 +19,9 @@ const DoctorSchema = new mongoose.Schema({
     id:{
         type:Number
     },
+    pincode:{
+        type:Number
+    },
     speciality:{
         type:String,
         required: true
