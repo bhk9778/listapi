@@ -29,10 +29,11 @@ router1.get("/",(req,res)=>{
 
 router1.get("/123/:district/:city/:speciality", async(req,res)=>{
     try{
-        const city = req.params.district;
-        const speciality = req.params.speciality;
         const district = req.params.district;
-        const data = await Doctor1.find({district:{$in: district},speciality:{$in: speciality},city:{$in: city}});
+        const city = req.params.city;
+        const speciality = req.params.speciality;
+        
+        const data = await Doctor1.find({district:{$in: district},city:{$in: city},speciality:{$in: speciality}});
         res.send(data)
     }
     catch(err){
