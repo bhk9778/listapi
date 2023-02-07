@@ -13,14 +13,14 @@ const DoctorSchema = new mongoose.Schema({
         required:true,
     },
     phone:{
-        type:Number,
+        type:String,
         required:true
     },
     id:{
-        type:Number
+        type:String
     },
     pincode:{
-        type:Number
+        type:String
     },
     speciality:{
         type:String,
