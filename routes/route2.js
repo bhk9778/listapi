@@ -40,4 +40,18 @@ router1.get("/123/:district/:city/:speciality", async(req,res)=>{
         console.log(err);
     }
 })
+
+
+router1.get("/456/:district/:speciality/", async(req,res)=>{
+    try{
+        const district = req.params.district;
+        const speciality = req.params.speciality;
+        
+        const data = await Doctor1.find({district:{$in: district},speciality:{$in: speciality}});
+        res.send(data)
+    }
+    catch(err){
+        console.log(err);
+    }
+})
 module.exports = router1;
