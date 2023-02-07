@@ -19,7 +19,7 @@ router1.post('/',(req,res)=>{
     doctor1.save().then(doctor1 =>{
         res.send(doctor1);
     }).catch(error =>{
-        res.status(500).send("Doctor was not stored");
+        res.status(500).send(`Doctor was not stored ${error}`);
     });
 });
 router1.get("/",(req,res)=>{
