@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const app = express();
 require('dotenv').config();
 const doctorRoute1 = require('./routes/route2');
-const PORT = process.env.PORT || 6000;
+const PORT = process.env.PORT || 4000;
 //middlewares
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -15,7 +15,8 @@ app.use('/api/affluence',doctorRoute1);
 
 //connecting to mongodb atlas;
 mongoose.connect(process.env.MONGO_URL,
-{useNewUrlParser:true}
+{useNewUrlParser:true
+}
 )
 .then(() => {
     console.warn("Connected to Mongodb atlas");
