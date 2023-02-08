@@ -14,40 +14,37 @@ router1.post('/',(req,res)=>{
         district:req.body.doctorDistrict,
         pincode:req.body.doctorPincode
     });
-
-
     doctor1.save().then(doctor1 =>{
         res.send(doctor1);
     }).catch(error =>{
         res.status(500).send(`Doctor was not stored ${error}`);
     });
 });
-router1.get("/",(req,res)=>{
-    Doctor1.find().then(doctor1 => res.send(doctor1))
-});
-
-
-router1.get("/123/:district/:city/:speciality", async(req,res)=>{
-    try{
-        const doctorDistrict = req.params.doctorDistrict;
-        const doctorcity = req.params.doctorcity;
-        const doctorSpeciality = req.params.doctorSpeciality;
-        
-        const data = await Doctor1.find({doctorDistrict:{$in: doctorDistrict},doctorcity:{$in: doctorcity},doctorSpeciality:{$in: doctorSpeciality}});
+router1.get("/", async (req,res)=>{
+        const data = await Doctor1.find()
         res.send(data)
-    }
-    catch(err){
-        console.log(err);
-    }
 })
-
-
-router1.get("/456/:address/:speciality/", async(req,res)=>{
+router1.get("/123/:doctorDistrict/:doctorcity/:doctorSpeciality", async(req,res)=>{
     try{
-        const address = req.params.address;
-        const speciality = req.params.speciality;
+        // const doctorDistrict = req.params.doctorDistrict;
+        // console.log(doctorDistrict)
+        // const doctorcity = req.params.doctorcity;
+        // console.log(doctorcity)
+        // const doctorSpeciality = req.params.doctorSpeciality;
+        // console.log(doctorSpeciality)
         
-        const data = await Doctor1.find({address:{$in: address},speciality:{$in: speciality}});
+        const data = await Doctor1.find({
+            $and:[{
+                $or: [{doctorDistrict: req.params.doctorDistrict}]
+            },{
+                $or: [{doctorcity: req.params.doctorcity}]},
+        {
+           $or: [{doctorSpeciality:req.params.doctorSpeciality}]}]
+            // doctorDistrict:{$in: doctorDistrict},
+            // doctorcity:{$in: doctorcity},
+            // doctorSpeciality:{$in: doctorSpeciality}
+        
+        });
         res.send(data)
     }
     catch(err){

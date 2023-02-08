@@ -22,15 +22,15 @@ const DoctorSchema = new mongoose.Schema({
     pincode:{
         type:String
     },
-    speciality:{
+    doctorSpeciality:{
         type:String,
         required: true
     },
-    city:{
+    doctorcity:{
         type:String,
         required:true,
     },
-    district:{
+    doctorDistrict:{
         type:String,
         required:true,
     },

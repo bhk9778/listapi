@@ -7,10 +7,9 @@ const PORT = process.env.PORT || 4000;
 //middlewares
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
-
-
 //routes
 app.use('/api/affluence',doctorRoute1);
+
 
 
 //connecting to mongodb atlas;
