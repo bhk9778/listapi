@@ -24,6 +24,16 @@ router1.get("/", async (req,res)=>{
         const data = await Doctor1.find()
         res.send(data)
 })
+router1.get("/123/:pincode",async(req,res)=>{
+    try{
+        const data = await Doctor1.find({$and:[{
+            $or:[{pincode: req.params.pincode}]
+        }]});res.send(data)
+    } 
+    catch(err){
+        console.log(err);
+    }
+})
 router1.get("/123/:doctorDistrict/:doctorcity/:doctorSpeciality", async(req,res)=>{
     try{
         // const doctorDistrict = req.params.doctorDistrict;
